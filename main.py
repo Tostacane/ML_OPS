@@ -1,3 +1,8 @@
+if __name__ == "__main__":
+    pass
+
+
+
 import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -6,7 +11,7 @@ from sklearn.preprocessing import StandardScaler, RobustScaler, OneHotEncoder, F
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 
-df = pd.read_csv('../data/raw/HR-Employee-Attrition.csv')
+df = pd.read_csv('data/raw/HR-Employee-Attrition.csv')
 
 # Drop these columns that are not useful for modeling and have no variance
 df_filtered = df.drop(columns=["EmployeeNumber","EmployeeCount","StandardHours","Over18"]).dropna()
@@ -21,11 +26,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Define columns for transformation
 categorical_cols = ['Department', 'EducationField', 'Gender', 'MaritalStatus', 'JobRole', 'BusinessTravel']
-numeric_cols_standard = ["HourlyRate", "DailyRate", "MonthlyRate", "JobInvolvement", "JobSatisfaction", 
-                         'TrainingTimesLastYear', 'WorkLifeBalance', 'StockOptionLevel', "Age", 
+numeric_cols_standard = ["HourlyRate", "DailyRate", "MonthlyRate", "JobInvolvement", "JobSatisfaction",
+                         'TrainingTimesLastYear', 'WorkLifeBalance', 'StockOptionLevel', "Age",
                          "Education", "EnvironmentSatisfaction"]
-numeric_cols_robust = ["DistanceFromHome", "MonthlyIncome", "YearsAtCompany", "YearsInCurrentRole", 
-                       "YearsSinceLastPromotion", "YearsWithCurrManager", "TotalWorkingYears", 
+numeric_cols_robust = ["DistanceFromHome", "MonthlyIncome", "YearsAtCompany", "YearsInCurrentRole",
+                       "YearsSinceLastPromotion", "YearsWithCurrManager", "TotalWorkingYears",
                        "PercentSalaryHike", 'NumCompaniesWorked']
 
 # Function to convert OverTime and Age

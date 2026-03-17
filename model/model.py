@@ -1,9 +1,8 @@
 import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
-from sklearn.discriminant_analysis import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import StandardScaler, RobustScaler
 
 df = pd.read_csv('../data/HR-Employee-Attrition.csv')
 
@@ -41,26 +40,15 @@ ct = ColumnTransformer(
 X_train_scaled = ct.fit_transform(X_train)
 X_test_scaled = ct.transform(X_test)
 
-columns = [
-    "HourlyRate","DailyRate","MonthlyRate","JobInvolvement","JobSatisfaction",'TrainingTimesLastYear','WorkLifeBalance','StockOptionLevel',"Age","Education","EnvironmentSatisfaction",
-    "DistanceFromHome","MonthlyIncome","YearsAtCompany","YearsInCurrentRole","YearsSinceLastPromotion","YearsWithCurrManager","TotalWorkingYears","PercentSalaryHike",'NumCompaniesWorked',
-       'OverTime',
-       'PerformanceRating',
-       'RelationshipSatisfaction','Department_Human Resources', 'Department_Research & Development',
-       'Department_Sales', 'EducationField_Human Resources',
-       'EducationField_Life Sciences', 'EducationField_Marketing',
-       'EducationField_Medical', 'EducationField_Other',
-       'EducationField_Technical Degree', 'Gender_Male',
-       'MaritalStatus_Divorced', 'MaritalStatus_Married',
-       'MaritalStatus_Single', 'JobRole_Healthcare Representative',
-       'JobRole_Human Resources', 'JobRole_Laboratory Technician',
-       'JobRole_Manager', 'JobRole_Manufacturing Director',
-       'JobRole_Research Director', 'JobRole_Research Scientist',
-       'JobRole_Sales Executive', 'JobRole_Sales Representative',
-       'BusinessTravel_Non-Travel', 'BusinessTravel_Travel_Frequently',
-       'BusinessTravel_Travel_Rarely'
-]
+X_train_scaled = pd.DataFrame(
+    X_train_scaled,
+    columns=ct.get_feature_names_out()
+)
 
-X_train_scaled = pd.DataFrame(X_train_scaled,columns=columns)
-X_test_scaled =  pd.DataFrame(X_test_scaled,columns=columns)
+X_test_scaled = pd.DataFrame(
+    X_test_scaled,
+    columns=ct.get_feature_names_out()
+)
 
+print(X_train_scaled.head())
+print(X_test_scaled.head())

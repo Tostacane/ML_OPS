@@ -1,9 +1,10 @@
+from typing import Any, Dict
+
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import RobustScaler
 from sklearn.linear_model import LogisticRegression
-from typing import Any, Dict
 
-from feature_engine.selection import DropConstantFeatures
+from feature_engine.selection import DropConstantFeatures, DropDuplicateFeatures, DropHighPSIFeatures
 from feature_engine.outliers import Winsorizer
 from feature_engine.encoding import OneHotEncoder
 
@@ -16,7 +17,6 @@ _MODEL_CONFIG = load_config("model")["model"]
 def _build_classifier(name: str, params: Dict[str, Any]):
     if name == "logistic_regression":
         return LogisticRegression(**params)
-
     raise ValueError(f"Unsupported model type: {name}")
 
 
@@ -27,8 +27,10 @@ def build_model() -> Pipeline:
     classifier = _build_classifier(model_name, model_params)
 
     pipeline = Pipeline([
-        ("drop_constants", DropConstantFeatures(tol=0.98)),
-        ("winsorize", Winsorizer(capping_method="iqr")),
+        ("drop_constants", DropConstantFeatures(tol=0.999)),
+        ("drop_duplicates", DropDuplicateFeatures()),
+        ("drop_low_variation", DropHighPSIFeatures(threshold=0.99)),
+        ("winsorize", Winsorizer(capping_method="iqr", tail="both")),
         ("encode", OneHotEncoder(drop_last=True)),
         ("scale", RobustScaler()),
         ("model", classifier)

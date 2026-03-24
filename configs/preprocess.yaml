@@ -1,0 +1,14 @@
+preprocess:
+  drop_columns:
+    - EmployeeNumber
+    - EmployeeCount
+    - StandardHours
+    - Over18
+
+  target:
+    name: Attrition
+    positive_value: "Yes"
+
+  cast_columns:
+    Age: int
+    OverTime: bool

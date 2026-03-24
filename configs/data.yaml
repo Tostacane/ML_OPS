@@ -1,0 +1,12 @@
+paths:
+  raw_dir: data/raw
+
+datasets:
+  hr_attrition:
+    filename: hr_employee_attrition.csv
+    stage: raw    # raw / processed / interim / external
+    format: csv
+    read_options:
+      sep: ","
+      encoding: "utf-8"
+      header: 0

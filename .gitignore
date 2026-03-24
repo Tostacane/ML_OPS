@@ -1,1 +1,9 @@
 .idea/
+
+# Compilati di python
+__pycache__/
+*.pyc
+
+# MLflow
+mlruns/
+mlflow.db

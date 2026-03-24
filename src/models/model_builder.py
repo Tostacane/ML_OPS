@@ -5,7 +5,6 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.linear_model import LogisticRegression
 
 from feature_engine.selection import DropConstantFeatures, DropDuplicateFeatures, DropHighPSIFeatures
-from feature_engine.outliers import Winsorizer
 from feature_engine.encoding import OneHotEncoder
 
 from utils.config import load_config

@@ -30,7 +30,6 @@ def build_model() -> Pipeline:
         ("drop_constants", DropConstantFeatures(tol=0.999)),
         ("drop_duplicates", DropDuplicateFeatures()),
         ("drop_low_variation", DropHighPSIFeatures(threshold=0.99)),
-        ("winsorize", Winsorizer(capping_method="iqr", tail="both")),
         ("encode", OneHotEncoder(drop_last=True)),
         ("scale", RobustScaler()),
         ("model", classifier)

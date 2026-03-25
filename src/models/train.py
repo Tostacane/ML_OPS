@@ -30,7 +30,6 @@ def train(
         X, y, test_size=test_size, random_state=random_state
     )
 
-    # Config dinamica
     model = build_model(model_config)
 
     model.fit(X_train, y_train)

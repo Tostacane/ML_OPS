@@ -1,6 +1,8 @@
-pandas~=3.0.1
+pandas~=2.3.3
 scikit-learn~=1.8.0
 pyyaml~=6.0.3
 feature-engine~=1.9.4
 joblib~=1.5.3
 streamlit~=1.55.0
+matplotlib~=3.10.8
+mlflow~=3.10.1

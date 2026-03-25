@@ -11,6 +11,7 @@ from feature_engine.encoding import OneHotEncoder
 
 from src.utils.config import load_config
 
+
 MODEL_REGISTRY = {
     "logistic_regression": LogisticRegression,
     "random_forest": RandomForestClassifier,
@@ -23,8 +24,6 @@ def _build_classifier(name: str, params: Dict[str, Any]):
         raise ValueError(f"Unsupported model type: {name}")
     return MODEL_REGISTRY[name](**params)
 
-
-# Passiamo config dinamicamente, se non viene passata, carichiamo quella di default
 def build_model(model_config: Dict[str, Any] | None = None) -> Pipeline:
     if model_config is None:
         model_config = load_config("model")["model"]

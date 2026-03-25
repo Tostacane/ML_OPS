@@ -1,7 +1,7 @@
 from typing import Dict, List, Any
 import pandas as pd
 
-from utils.config import load_config
+from src.utils.config import load_config
 
 
 _PREPROCESS_CONFIG = load_config("preprocess")["preprocess"]

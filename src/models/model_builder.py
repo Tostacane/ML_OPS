@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from feature_engine.selection import DropConstantFeatures, DropDuplicateFeatures, DropHighPSIFeatures
 from feature_engine.encoding import OneHotEncoder
 
-from utils.config import load_config
+from src.utils.config import load_config
 
 
 _MODEL_CONFIG = load_config("model")["model"]

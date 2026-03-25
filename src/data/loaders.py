@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 from typing import Any, Dict
 
-from utils.config import load_config, PROJECT_ROOT
+from src.utils.config import load_config, PROJECT_ROOT
 
 
 _DATA_CONFIG = load_config("data")

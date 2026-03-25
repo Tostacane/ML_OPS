@@ -3,10 +3,11 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
-from data.loaders import load_dataset
-from data.preprocess import preprocess
-from models.model_builder import build_model
-from utils.config import load_config
+from src.data.loaders import load_dataset
+from src.data.preprocess import preprocess
+from src.models.model_builder import build_model
+from src.models.persistence import save_model
+from src.utils.config import load_config
 
 
 def train(
@@ -30,6 +31,7 @@ def train(
     model = build_model()
 
     model.fit(X_train, y_train)
+    save_model(model)
 
     y_pred = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:, 1]

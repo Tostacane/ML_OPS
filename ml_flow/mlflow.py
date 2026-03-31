@@ -1,8 +1,12 @@
+from anyio import Path
 import mlflow
 from matplotlib import pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
 
 from src.models.train import train
+from src.utils.config import FLOW_DIR
+
+
 
 
 experiments = [
@@ -27,6 +31,9 @@ experiments = [
 dataset_name = "hr_attrition"
 
 def run_experiment():
+    FLOW_DIR.mkdir(exist_ok=True)
+    mlflow.set_tracking_uri("file:./ml_flow/mlruns")
+    mlflow.set_experiment("hr_attrition_experiments")
     for exp in experiments:
         with mlflow.start_run():
 
@@ -39,7 +46,8 @@ def run_experiment():
             mlflow.log_params(exp[exp["name"]])
             ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
 
-            # plt.savefig("./ml_flow/ml_flow_img/confusion_matrix.png")
-            # mlflow.log_artifact("confusion_matrix.png")
+
+            plt.savefig(f"./ml_flow/ml_flow_img/{exp['name']}_confusion_matrix.png")
+            mlflow.log_artifact(f"./ml_flow/ml_flow_img/{exp['name']}_confusion_matrix.png")
 
             mlflow.sklearn.log_model(model, exp["name"])

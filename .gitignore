@@ -1,10 +1,28 @@
-.idea/
-.venv/
-
-models/
-
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
+# Venv
+.venv/
+
+# Data
+data/raw/
+
+# Models
+models/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# MLFlow
 mlruns/
 mlflow.db

@@ -1,4 +1,3 @@
-from cmath import exp
 import mlflow
 from matplotlib import pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
@@ -6,7 +5,7 @@ from sklearn.metrics import ConfusionMatrixDisplay
 from src.models.evaluate import evaluate
 from src.models.train import train
 from src.utils.config import FLOW_DIR 
-from src.utils.model_variants import generate_experiment_variants
+from .model_variants import generate_experiment_variants
 
 dataset_name = "hr_attrition"
 

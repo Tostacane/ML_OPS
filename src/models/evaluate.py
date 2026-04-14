@@ -10,8 +10,8 @@ from sklearn.metrics import (
 
 
 def evaluate(y_test, y_pred, y_proba, positive_label=1):
-    print("\n=== Classification Report ===")
-    print(classification_report(y_test, y_pred))
+    #print("\n=== Classification Report ===")
+    #print(classification_report(y_test, y_pred))
 
     metrics = {
         "accuracy": accuracy_score(y_test, y_pred),
@@ -21,8 +21,8 @@ def evaluate(y_test, y_pred, y_proba, positive_label=1):
         "roc_auc": roc_auc_score(y_test, y_proba),
     }
 
-    print("\n=== Metrics Summary ===")
-    for k, v in metrics.items():
-        print(f"{k}: {v:.4f}")
+    #print("\n=== Metrics Summary ===")
+    #for k, v in metrics.items():
+    #    print(f"{k}: {v:.4f}")
 
     return metrics

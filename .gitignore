@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 # Python
+=======
+.idea/
+.venv/
+
+models/
+ml_flow/ml_flow_img/
+
+>>>>>>> ml_flow
 __pycache__/
 *.pyc
 *.pyo

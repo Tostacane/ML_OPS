@@ -1,4 +1,3 @@
-"""
 import pytest
 import numpy as np
 import pandas as pd
@@ -9,11 +8,8 @@ from src.data.preprocess import (
     convert_binary_target,
     cast_columns
 )
-"""
-def test():
-    assert True == True
 
-"""
+
 @pytest.fixture
 def df() -> pd.DataFrame:
     df = pd.DataFrame(
@@ -58,4 +54,3 @@ def test_cast_columns(df: pd.DataFrame) -> None:
 
     assert new_df.equals(df) == False
     assert new_df["age"].dtype == int
-"""

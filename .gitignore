@@ -2,6 +2,7 @@
 .venv/
 
 models/
+ml_flow/ml_flow_img/
 
 __pycache__/
 *.pyc

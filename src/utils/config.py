@@ -8,7 +8,7 @@ CONFIG_DIR = PROJECT_ROOT / "configs"
 MODELS_DIR = PROJECT_ROOT / "models"
 MODELS_DIR.mkdir(exist_ok=True)
 
-FLOW_DIR = PROJECT_ROOT / "ml_flow" / "ml_flow_img"
+FLOW_DIR = PROJECT_ROOT / "ml_flow"
 FLOW_DIR.mkdir(exist_ok=True)
 
 

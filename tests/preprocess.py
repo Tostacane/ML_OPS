@@ -9,6 +9,9 @@ from src.data.preprocess import (
     cast_columns
 )
 
+def test():
+    assert True == True
+
 """
 @pytest.fixture
 def df() -> pd.DataFrame:

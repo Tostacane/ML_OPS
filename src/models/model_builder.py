@@ -20,6 +20,7 @@ MODEL_REGISTRY = {
 }
 
 def _build_classifier(name: str, params: Dict[str, Any]):
+    name = name.split("_v")[0]
     if name not in MODEL_REGISTRY:
         raise ValueError(f"Unsupported model type: {name}")
     return MODEL_REGISTRY[name](**params)

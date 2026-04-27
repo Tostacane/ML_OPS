@@ -7,7 +7,7 @@ name = "ml-ops"
 version = "0.1.0"
 
 [tool.setuptools.packages.find]
-where = ["." lowest=[]]
+where = ["."]
 include = ["src*"]
 
 [tool.pytest.ini_options]

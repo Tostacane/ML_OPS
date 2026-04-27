@@ -14,7 +14,8 @@ def train(
     dataset_name: str,
     test_size: float = 0.2,
     random_state: int = 101,
-    model_config: dict | None = None
+    model_config: dict | None = None,
+    save_file_name: str | None = None,
 ) -> Tuple[object, pd.DataFrame, pd.Series, pd.Series, pd.Series]:
     
     preprocess_config = load_config("preprocess")["preprocess"]
@@ -24,6 +25,7 @@ def train(
     df = preprocess(df)
 
     X = df.drop(columns=[target_column])
+    print(X.columns)
     y = df[target_column]
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -33,7 +35,7 @@ def train(
     model = build_model(model_config)
 
     model.fit(X_train, y_train)
-    save_model(model)
+    save_model(model, save_file_name)
 
     y_pred = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:, 1]

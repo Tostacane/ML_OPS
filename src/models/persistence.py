@@ -7,7 +7,8 @@ from src.utils.config import MODELS_DIR
 def save_model(model, filename: str = "model.pkl") -> Path:
     MODELS_DIR.mkdir(exist_ok=True)
 
-    model_path = MODELS_DIR / filename
+    #model_path = MODELS_DIR / filename
+    model_path = MODELS_DIR / "model.pkl"
     joblib.dump(model, model_path)
 
     return model_path

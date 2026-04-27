@@ -6,3 +6,5 @@ joblib~=1.5.3
 streamlit~=1.55.0
 matplotlib~=3.10.8
 mlflow~=3.10.1
+pytest~=9.0.2
+pytest-cov~=7.1.0

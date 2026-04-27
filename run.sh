@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Opening streamlit and mlflow UI"
+echo "Opening ML_Flow, FastAPI and Streamlit in separate tabs"
 
 konsole -p tabtitle="MLflow" -e bash -c "mlflow ui --port 5000; exec bash" &
 konsole -p tabtitle="FastAPI" -e bash -c "uvicorn deploy.api:app --host 0.0.0.0 --port 8000; exec bash" &

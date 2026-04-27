@@ -12,7 +12,7 @@ from src.data.preprocess import cast_columns
 from src.utils.config import load_config
 
 
-MODEL = load_model("hr_log_reg.pkl")
+MODEL = load_model("model.pkl")
 _PREPROCESS_CONFIG = load_config("preprocess")["preprocess"]
 
 

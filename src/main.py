@@ -1,5 +1,4 @@
 from src.models.train import train
-from src.models.evaluate import evaluate
 from ml_flow.mlflow import run_experiment
 
 

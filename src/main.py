@@ -22,5 +22,5 @@ if __name__ == "__main__":
 
     # MLFLOW
     log.info("Start Evaluating")
-    #run_experiment()
+    run_experiment()
     log.info("Evaluation Complete")

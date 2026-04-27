@@ -27,3 +27,6 @@ models/
 mlruns/
 mlflow.db
 ml_flow/ml_flow_img/
+
+# Logs
+logs/

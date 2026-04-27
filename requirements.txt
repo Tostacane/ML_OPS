@@ -8,3 +8,4 @@ matplotlib~=3.10.8
 mlflow~=3.10.1
 pytest~=9.0.2
 pytest-cov~=7.1.0
+structlog~=.25.5.0
